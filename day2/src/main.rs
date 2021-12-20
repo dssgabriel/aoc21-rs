@@ -1,3 +1,4 @@
+#[derive(Debug)]
 enum Movement {
     Forward(usize),
     Up(usize),
@@ -51,34 +52,34 @@ impl Submarine {
     }
 }
 
-fn part_one(commands: &[String]) -> usize {
+fn part_one(input: &[String]) -> usize {
     let mut submarine = Submarine::new();
 
-    for command in commands {
-        submarine.move_part_one(Movement::new(command));
+    for cmd in input {
+        submarine.move_part_one(Movement::new(cmd));
     }
 
     submarine.x * submarine.depth
 }
 
-fn part_two(commands: &[String]) -> usize {
+fn part_two(input: &[String]) -> usize {
     let mut submarine = Submarine::new();
 
-    for command in commands {
-        submarine.move_part_two(Movement::new(command));
+    for cmd in input {
+        submarine.move_part_two(Movement::new(cmd));
     }
 
     submarine.x * submarine.depth
 }
 
 fn main() {
-    let commands: Vec<String> = include_str!("day2.in")
+    let input: Vec<String> = include_str!("../input/day2.txt")
         .trim()
         .lines()
         .map(str::parse)
         .map(Result::unwrap)
         .collect();
 
-    println!("Answer of part 1 is {}", part_one(&commands));
-    println!("Answer of part 2 is {}", part_two(&commands));
+    println!("Answer to part 1 is {}", part_one(&input));
+    println!("Answer to part 2 is {}", part_two(&input));
 }

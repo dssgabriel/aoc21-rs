@@ -42,7 +42,7 @@ fn part_two(input: &str) -> u32 {
 }
 
 fn main() {
-    let input = include_str!("day3.in").trim();
+    let input = include_str!("../input/day3.txt").trim();
     println!("Answer to part 1 is: {}", part_one(&input));
     println!("Answer to part 2 is: {}", part_two(&input));
 }
